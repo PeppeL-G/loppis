@@ -1,7 +1,7 @@
 # loppis
 Ett simpelt försäljningsprogram som håller koll på vem som har sålt vad (för bruk vid försäljningar där olika personer bidrar med varor och ska få tillbaka en viss procent av sina sålda varor).
 
-Det här programmet får användas fritt av alla (MIT licenserat).
+Det här programmet får användas fritt av alla (MIT licenserat). Demo finns kanske tillgänligt på [http://loppis.meteor.com](http://loppis.meteor.com/).
 
 Programmet är byggd som en webbsida i [Meteor](https://www.meteor.com/). Det bör fungera i alla moderna webbläsare (Google Chrome, Mozilla Firefox med flera) oavsett plattform (PC, smartphones, surfplattor med flera).
 
