@@ -1,0 +1,31 @@
+<template name="page_sellers">
+	<button class="btn btn-primary clickShowsAddSellerModal">Lägg till ny säljare</button>
+	{{#with sellers}}
+		{{#if count}}
+			<table class="table table-striped" style="width: auto;">
+				<thead>
+					<tr>
+						<th style="text-align: center">Säljarnummer</th>
+						<th>Namn</th>
+						<th>80% sålt</th>
+						<th>Information</th>
+					</tr>
+				</thead>
+				<tbody>
+					{{#each this}}
+						<tr>
+							<td style="text-align: center; vertical-align: middle">{{getNumber}}</td>
+							<td style="vertical-align: middle">{{getName}}</td>
+							<td style="vertical-align: middle">{{getPartOfSellAmountAsString 0.8}}</td>
+							<td style="text-align: center; vertical-align: middle">
+								<button class="btn btn-info clickShowsSellerInfo">Visa</button>
+							</td>
+						</tr>
+					{{/each}}
+				</tbody>
+			</table>
+		{{else}}
+			<p>Inga säljare inlaggda än. Använd knappen ovan för att lägga till nya.</p>
+		{{/if}}
+	{{/with}}
+</template>

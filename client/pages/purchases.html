@@ -1,0 +1,38 @@
+<template name="page_purchases">
+	{{#if sellersExist}}
+		<button class="btn btn-primary clickShowsAddPurchaseModal">Lägg till nytt köp</button>
+		{{#with purchases}}
+			{{#if count}}
+				<table class="table table-striped" style="text-align: left; width: auto;">
+					<thead>
+						<tr>
+							<th style="text-align: center">Köpnummer</th>
+							<th style="text-align: center">Säljarnummer</th>
+							<th style="text-align: center">Pris</th>
+							<th style="text-align: center">Åtgärder</th>
+						</tr>
+					</thead>
+					<tbody>
+						{{#each this}}
+							<tr>
+								<td style="text-align: center; vertical-align: middle">{{getNumber}}</td>
+								<td style="text-align: center; vertical-align: middle">
+									{{getSellerNumber}}
+								</td>
+								<td style="text-align: center; vertical-align: middle">{{getPrice}}</td>
+								<td style="text-align: center; vertical-align: middle">
+									<button class="btn btn-default clickShowsEditPurchaseModal">Ändra</button>
+									<button class="btn btn-danger clickShowsDeletePurchaseModal">Ta bort</button>
+								</td>
+							</tr>
+						{{/each}}
+					</tbody>
+				</table>
+			{{else}}
+				<p>Inga köp gjorda än. Använd knappen ovan för att lägga till köp.</p>
+			{{/if}}
+		{{/with}}
+	{{else}}
+		<p>Lägg till säljare för att göra denna sidan brukbar.</p>
+	{{/if}}
+</template>

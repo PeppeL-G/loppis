@@ -1,0 +1,35 @@
+<template name="modal_generateRandomData">
+	<div class="modal fade" data-backdrop="static">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<form class="form-horizontal" role="form">
+					
+					<div class="modal-header">
+						<h4 class="modal_title">Generera slumpdata</h4>
+					</div>
+					
+					<div class="modal-body">
+						<div class="form-group">
+							<label for="numberOfSellers" class="col-sm-4 control-label">Antal säljare:</label>
+							<div class="col-sm-8">
+								<input type="number" class="form-control numberOfSellers" id="numberOfSellers" min="0" autofocus="true">
+							</div>
+						</div>
+						<div class="form-group">
+							<label for="numberOfPurchases" class="col-sm-4 control-label">Antal säljningar:</label>
+							<div class="col-sm-8">
+								<input type="number" class="form-control numberOfPurchases" id="numberOfPurchases" min="0">
+							</div>
+						</div>
+					</div>
+					
+					<div class="modal-footer">
+						<button type="button" class="btn btn-default" data-dismiss="modal" style="float: left">Stäng</button>
+						<button type="submit" class="btn btn-success">Generera</button>
+					</div>
+					
+				</form>
+			</div>
+		</div>
+	</div>
+</template>

@@ -1,0 +1,84 @@
+<template name="modal_addPurchase">
+	<div class="modal fade" data-backdrop="static">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<form class="form-horizontal" role="form">
+					
+					<div class="modal-header">
+						<h4 class="modal_title">Lägg till köp</h4>
+					</div>
+					
+					<div class="modal-body">
+						
+						{{#each newPurchases}}
+							{{> newPurchase}}
+						{{/each}}
+						
+						<div style="text-align: center; margin-bottom: 1em">
+							<button type="button" class="btn btn-success clickAddsProduct">En till produkt</button>
+						</div>
+						
+						<hr>
+						
+						<div class="form-group">
+							<label class="col-sm-3 control-label">Att betala:</label>
+							<div class="col-sm-9">
+								<input type="number" class="form-control totalPrice" value="{{totalPrice}}" readonly="true" tabindex="-1">
+							</div>
+						</div>
+						
+						<div class="form-group">
+							<label class="col-sm-3 control-label">Betalat:</label>
+							<div class="col-sm-9">
+								<input type="number" class="form-control paid" min="0" required="true" title="Vad kunden betalat i hela kronor. Minst 0.">
+							</div>
+						</div>
+						
+						<div class="form-group">
+							<label class="col-sm-3 control-label">Växel</label>
+							<div class="col-sm-9">
+								<input type="number" class="form-control change" min="0" value="{{change}}" readonly="true" tabindex="-1">
+							</div>
+						</div>
+						
+					</div>
+					
+					<div class="modal-footer">
+						<button type="button" class="btn btn-default" data-dismiss="modal" style="float: left" tabindex="-1">Stäng</button>
+						<button type="submit" class="btn btn-success showNew">Lägg till och skapa ny</button>
+						<button type="submit" class="btn btn-success">Lägg till</button>
+					</div>
+					
+				</form>
+			</div>
+		</div>
+	</div>
+</template>
+
+<template name="newPurchase">
+	<div class="form-group">
+		<label class="col-sm-3 control-label">Säljarnummer:</label>
+		<div class="col-sm-9">
+			<div class="input-group">
+				<span class="input-group-addon">
+					{{#with getSeller}}
+						{{getName}}
+					{{/with}}
+				</span>
+				<input type="number" required="true" min="1" max="{{maxSellerNumber}}" autofocus="true" class="form-control sellerNumber" placeholder="Säljarens nummer (heltal mellan 1 och {{maxSellerNumber}})." title="Säljarens nummer (heltal mellan 1 och {{maxSellerNumber}}).">
+			</div>
+		</div>
+	</div>
+	
+	<div class="form-group">
+		<label class="col-sm-3 control-label">Pris:</label>
+		<div class="col-sm-5">
+			<input type="number" required="true" min="0" class="form-control price" placeholder="Pris (antal hela kronor)."  title="Priset i antal hela kronor. Minst 0.">
+		</div>
+		<div class="col-sm-4" style="text-align: center">
+			<button type="button" class="btn btn btn-danger clickRemovesPurchase" tabindex="-1">Ta bort</button>
+		</div>
+	</div>
+	
+	<hr>
+</template>

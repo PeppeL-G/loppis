@@ -1,0 +1,23 @@
+<template name="layout">
+	<div class="container">
+		<ul class="nav nav-tabs">
+			{{#each getPages}}
+				<li
+					role="presentation"
+					class="{{#if isCurrentPage}}active{{/if}}"
+				>
+					<a
+						href="#"
+						class="clickChangesPage"
+					>
+						{{name}}
+					</a>
+				</li>
+			{{/each}}
+		</ul>
+		
+		<div style="padding: 5px">
+			{{> Template.dynamic template=getCurrentPage.template}}
+		</div>
+	</div>
+</template>

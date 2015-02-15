@@ -1,0 +1,35 @@
+<template name="modal_addSeller">
+	<div class="modal fade" data-backdrop="static">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<form class="form-horizontal" role="form">
+					
+					<div class="modal-header">
+						<h4 class="modal_title">Lägg till säljare</h4>
+					</div>
+					
+					<div class="modal-body">
+						<div class="form-group">
+							<label class="col-sm-2 control-label">Nummer:</label>
+							<div class="col-sm-10">
+								<input type="text" class="form-control number" value="{{number}}" readonly="true">
+							</div>
+						</div>
+						<div class="form-group">
+							<label for="name" class="col-sm-2 control-label">Namn:</label>
+							<div class="col-sm-10">
+								<input type="text" required="true" class="form-control name" id="name" placeholder="Namn" autofocus="true">
+							</div>
+						</div>
+					</div>
+					
+					<div class="modal-footer">
+						<button type="button" class="btn btn-default" data-dismiss="modal" style="float: left">Stäng</button>
+						<button type="submit" class="btn btn-success">Lägg till</button>
+					</div>
+					
+				</form>
+			</div>
+		</div>
+	</div>
+</template>
