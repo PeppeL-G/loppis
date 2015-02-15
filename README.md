@@ -8,3 +8,5 @@ Programmet är byggd som en webbsida i [Meteor](https://www.meteor.com/). Det b�
 Programmet är designat att användas utan internetanslutning, och all information du lägger till i programmet finns enbart sparat lokalt i den webbläsare på den plattform du använder. Om du rensar surfdata i webbläsaren riskerar du att radera information sparad i programmet (kan skilja från webbläsare till webbläsare).
 
 Programmet är inte designat för att hantera riktigt stora datamängder. Innan du använder programmet bör du kontrollera om webbläsaren på den plattform du tänker köra programmet i klarar av att hantera det antalet säljare och säljningar du förväntar dig. I programmet kan du under fliken "Hjälp/Om" snabbt generera slumpade säljare och säljningar. De (allt) kan sedan raderas under fliken inställningar.
+
+Programmet kan laddas ner från [builds](https://github.com/PeppeL-G/loppis/tree/master/builds) mappen (en ZIP-fil). Välj den senaste versionen. Packa upp (extrahera mappen i) ZIP-filen. Den extraherade mappen från ZIP-filen är själva programmet. Start programmet genom att öppna filen `index`/`index.html` i den med en webbläsare (dubbelklicka på den).
