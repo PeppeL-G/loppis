@@ -3,6 +3,8 @@ templateName = 'modal_addPurchase'
 NewPurchases = new Mongo.Collection null, transform: (doc) ->
 	return new Purchase(doc)
 
+previousPurchase = null
+
 Template[templateName].created = ->
 	
 	@paid = new ReactiveVar(0)
@@ -55,6 +57,9 @@ Template[templateName].helpers
 		totalPrice = NewPurchases.find(where, options).sum('price')
 		
 		return Template.instance().paid.get() - totalPrice
+	
+	previousPurchase: () ->
+		return previousPurchase
 
 Template[templateName].events
 	
@@ -107,6 +112,21 @@ Template[templateName].events
 		
 		event.preventDefault()
 		
+		# Remember info about this purchase.
+		where =
+			price: {$type: 1}
+		
+		options =
+			transform: null
+		
+		totalPrice = NewPurchases.find(where, options).sum('price')
+		paid = template.paid.get()
+		previousPurchase =
+			paid: paid
+			totalPrice: totalPrice
+			change: paid - totalPrice
+		
+		# Add the purchases.
 		NewPurchases.find().forEach (purchase) ->
 			
 			purchase =
@@ -122,6 +142,9 @@ Template[templateName].events
 		setTimeout ->
 			Modal.show('modal_addPurchase')
 		, 700
+	
+	'click .clickShowsPreviousPurchase': (event, template) ->
+		alert("Förra köpet kostade "+previousPurchase.totalPrice+" kr. Kunden betalade "+previousPurchase.paid+" kr och ska ha "+previousPurchase.change+" kr tillbaka.")
 
 Template[templateName].destroyed = ->
 	NewPurchases.remove({})
