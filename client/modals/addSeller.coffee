@@ -17,8 +17,15 @@ Template[templateName].events
 		
 		event.preventDefault()
 		
+		number = parseInt(template.find('.number').value)
+		
+		# Validate.
+		if Sellers.findOne({number: number})
+			alert("Det finns redan en säljare registrerad med numret "+number+".")
+			return
+		
 		seller =
-			number: parseInt(template.find('.number').value)
+			number: number
 			name: template.find('.name').value
 		
 		Sellers.insert(seller)
