@@ -1,0 +1,38 @@
+<template name="page_export">
+	
+	<p>Här kan du generera en datatext som kan användas under fliken importera för att kopiera data från den här datorn till en annan. Använd till exempel e-mail eller ett USB-minne (spara exporteringstexten i en textfil) för att förflytta den mellan olika datorer.</p>
+	
+	<form class="form-horizontal">
+		
+		<div class="form-group">
+			<label for="exportSellers" class="col-sm-2 control-label">Exportera säljare:</label>
+			<div class="col-sm-10 checkbox">
+				<input type="checkbox" id="exportSellers">
+			</div>
+		</div>
+		
+		<div class="form-group">
+			<label for="exportPurchases" class="col-sm-2 control-label">Exportera köp:</label>
+			<div class="col-sm-10 checkbox">
+				<input type="checkbox" id="exportPurchases">
+			</div>
+		</div>
+		
+		<div class="form-group">
+			<div class="col-sm-offset-2 col-sm-10">
+				<button type="submit" class="btn btn-success">Generera datatext</button>
+			</div>
+	  </div>
+		
+		{{#with dataString}}
+			<div class="form-group">
+				<label for="dataString" class="col-sm-2 control-label">Datatext:</label>
+				<div class="col-sm-10 checkbox">
+					<textarea class="form-control" id="dataString">{{this}}</textarea>
+				</div>
+			</div>
+		{{/with}}
+		
+	</form>
+	
+</template>

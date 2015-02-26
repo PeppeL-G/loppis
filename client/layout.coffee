@@ -13,6 +13,12 @@ pages = [
 	name: 'Inställningar'
 	template: 'page_settings'
 ,
+	name: 'Exportera'
+	template: 'page_export'
+,
+	name: 'Importera'
+	template: 'page_import'
+,
 	name: 'Hjälp/Om'
 	template: 'page_help'
 ]

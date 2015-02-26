@@ -1,0 +1,22 @@
+<template name="page_import">
+	
+	<p>Här kan du importera data från den datatext du erhållit under fliken exportera. Klistra bara in den i textfältet nedan och tryck på importa-knappen.</p>
+	
+	<form class="form-horizontal">
+		
+		<div class="form-group">
+			<label for="exportPurchases" class="col-sm-2 control-label">Datatext:</label>
+			<div class="col-sm-10 checkbox">
+				<textarea class="form-control" id="dataString"></textarea>
+			</div>
+		</div>
+		
+		<div class="form-group">
+			<div class="col-sm-offset-2 col-sm-10">
+				<button type="submit" class="btn btn-success">Importa</button>
+			</div>
+	  </div>
+		
+	</form>
+	
+</template>
