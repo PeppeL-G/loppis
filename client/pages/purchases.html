@@ -1,7 +1,8 @@
 <template name="page_purchases">
 	{{#if sellersExist}}
-		<button class="btn btn-primary clickShowsAddPurchaseModal">Lägg till nytt köp</button>
+		<p><button class="btn btn-primary clickShowsAddPurchaseModal">Lägg till nytt köp</button></p>
 		{{#with purchases}}
+			<p>{{> Paginator_UI this}}</p>
 			{{#if count}}
 				<table class="table table-striped" style="text-align: left; width: auto;">
 					<thead>
@@ -31,6 +32,7 @@
 			{{else}}
 				<p>Inga köp gjorda än. Använd knappen ovan för att lägga till köp.</p>
 			{{/if}}
+			<p>{{> Paginator_UI this}}</p>
 		{{/with}}
 	{{else}}
 		<p>Lägg till säljare för att göra denna sidan brukbar.</p>

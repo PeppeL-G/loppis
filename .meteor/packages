@@ -11,3 +11,4 @@ meteor-platform
 peppelg:bootstrap-3-modal
 peppelg:mongo-sum
 ground:db
+hitchcott:paginator
