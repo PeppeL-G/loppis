@@ -1,12 +1,16 @@
 templateName = 'page_sellers'
 
+Template[templateName].created = ->
+	@sellersPaginator = new Paginator(Sellers)
+
 Template[templateName].helpers
 	
 	sellers: () ->
 		options =
 			sort:
 				[['number', 'desc']]
-		return Sellers.find({}, options)
+			itemsPerPage: 25
+		return Template.instance().sellersPaginator.find({}, options)
 
 Template[templateName].events
 	

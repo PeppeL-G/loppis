@@ -1,6 +1,7 @@
 <template name="page_sellers">
-	<button class="btn btn-primary clickShowsAddSellerModal">Lägg till ny säljare</button>
+	<p><button class="btn btn-primary clickShowsAddSellerModal">Lägg till ny säljare</button></p>
 	{{#with sellers}}
+		<p>{{> Paginator_UI this}}</p>
 		{{#if count}}
 			<table class="table table-striped" style="width: auto;">
 				<thead>
@@ -27,5 +28,6 @@
 		{{else}}
 			<p>Inga säljare inlaggda än. Använd knappen ovan för att lägga till nya.</p>
 		{{/if}}
+		<p>{{> Paginator_UI this}}</p>
 	{{/with}}
 </template>
