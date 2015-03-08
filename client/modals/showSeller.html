@@ -19,8 +19,20 @@
 						<dt>Antal sålda:</dt>
 						<dd>{{getSellCount}}</dd>
 						
+						<dt>Medhjälpare:</dt>
+						<dd>
+							{{#if isHelper}}
+								Ja
+							{{else}}
+								Nej
+							{{/if}}
+						</dd>
+						
 						<dt>Säljarsumma:</dt>
-						<dd>{{getSellAmount}} (80% = {{getPartOfSellAmountAsString 0.8}})</dd>
+						<dd>{{getSellAmount}}</dd>
+						
+						<dt>Förtjänst:</dt>
+						<dd>{{getProfit}}</dd>
 						
 					</dl>
 					<h5 style="text-align: center; text-decoration: underline">Säljningar</h5>

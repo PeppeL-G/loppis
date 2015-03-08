@@ -18,6 +18,7 @@ Template[templateName].events
 		event.preventDefault()
 		
 		number = parseInt(template.find('.number').value)
+		isHelper = template.find('#isHelper').value == 'yes'
 		
 		# Validate.
 		if Sellers.findOne({number: number})
@@ -27,6 +28,7 @@ Template[templateName].events
 		seller =
 			number: number
 			name: template.find('.name').value
+			isHelper: isHelper
 		
 		Sellers.insert(seller)
 		

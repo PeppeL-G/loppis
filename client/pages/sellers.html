@@ -8,7 +8,7 @@
 					<tr>
 						<th style="text-align: center">Säljarnummer</th>
 						<th>Namn</th>
-						<th>80% sålt</th>
+						<th>Förtjänst</th>
 						<th>Information</th>
 					</tr>
 				</thead>
@@ -17,8 +17,9 @@
 						<tr>
 							<td style="text-align: center; vertical-align: middle">{{getNumber}}</td>
 							<td style="vertical-align: middle">{{getName}}</td>
-							<td style="vertical-align: middle">{{getPartOfSellAmountAsString 0.8}}</td>
+							<td style="vertical-align: middle">{{getProfit}}</td>
 							<td style="text-align: center; vertical-align: middle">
+								<button class="btn btn-info clickShowsEditSellerModal">Ändra</button>
 								<button class="btn btn-info clickShowsSellerInfo">Visa</button>
 							</td>
 						</tr>

@@ -1,24 +1,24 @@
-<template name="modal_addSeller">
+<template name="modal_editSeller">
 	<div class="modal fade" data-backdrop="static">
 		<div class="modal-dialog">
 			<div class="modal-content">
 				<form class="form-horizontal" role="form">
 					
 					<div class="modal-header">
-						<h4 class="modal_title">Lägg till säljare</h4>
+						<h4 class="modal_title">Ändra säljare</h4>
 					</div>
 					
 					<div class="modal-body">
 						<div class="form-group">
 							<label class="col-sm-2 control-label">Nummer:</label>
 							<div class="col-sm-10">
-								<input type="number" class="form-control number" min="1" value="{{number}}" autofocus="true">
+								<input type="number" class="form-control" value="{{getNumber}}" readonly="true">
 							</div>
 						</div>
 						<div class="form-group">
 							<label for="name" class="col-sm-2 control-label">Namn:</label>
 							<div class="col-sm-10">
-								<input type="text" required="true" class="form-control name" id="name" placeholder="Namn">
+								<input type="text" required="true" class="form-control name" id="name" value="{{getName}}">
 							</div>
 						</div>
 						<div class="form-group">
@@ -26,7 +26,7 @@
 							<div class="col-sm-10">
 								<select id="isHelper" class="form-control">
 									<option value="no">Nej</option>
-									<option value="yes">Ja</option>
+									<option value="yes" selected="{{isHelper}}">Ja</option>
 								</select>
 							</div>
 						</div>
@@ -34,7 +34,7 @@
 					
 					<div class="modal-footer">
 						<button type="button" class="btn btn-default" data-dismiss="modal" style="float: left">Stäng</button>
-						<button type="submit" class="btn btn-success">Lägg till</button>
+						<button type="submit" class="btn btn-success">Spara</button>
 					</div>
 					
 				</form>

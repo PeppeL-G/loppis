@@ -19,3 +19,6 @@ Template[templateName].events
 	
 	'click .clickShowsSellerInfo': (event, template) ->
 		Modal.show('modal_showSeller', this)
+	
+	'click .clickShowsEditSellerModal': (event, template) ->
+		Modal.show('modal_editSeller', this)

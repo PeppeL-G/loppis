@@ -17,6 +17,7 @@ Template[templateName].events
 				Sellers.insert
 					number: number
 					name: "Säljare #"+number
+					isHelper: false
 				number++
 		
 		# Add purchases.

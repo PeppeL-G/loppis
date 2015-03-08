@@ -1,3 +1,5 @@
+tax = 0.20
+
 class Seller
 	
 	constructor: (@doc) ->
@@ -8,6 +10,9 @@ class Seller
 	
 	getNumber: () ->
 		return @doc.number
+	
+	isHelper: () ->
+		return @doc.isHelper
 	
 	getName: () ->
 		return @doc.name
@@ -27,8 +32,11 @@ class Seller
 			amount += purchase.getPrice()
 		return amount
 	
-	getPartOfSellAmountAsString: (part) ->
-		return (@getSellAmount()*part).toFixed(2)
+	getProfit: () ->
+		if @isHelper()
+			return (@getSellAmount()).toFixed(2)
+		else
+			return (@getSellAmount()*(1-tax)).toFixed(2)
 
 @Sellers = new Ground.Collection 'sellers',
 	connection: null

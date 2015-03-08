@@ -14,13 +14,6 @@ Template[templateName].helpers
 			transform: null
 		
 		return Purchases.find({}, options).sum('price')
-	
-	fractionOfPurchaseAmount: (fraction) ->
-		
-		options =
-			transform: null
-		
-		return (Purchases.find({}, options).sum('price')*fraction).toFixed(2)
 
 Template[templateName].events
 	
