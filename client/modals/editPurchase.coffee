@@ -8,7 +8,10 @@ Template[templateName].created = ->
 Template[templateName].helpers
 	
 	maxSellerNumber: () ->
-		return Sellers.find().count()
+		options =
+			sort:
+				[['number', 'desc']]
+		return Sellers.findOne({}, options).getNumber()
 	
 	seller: () ->
 		return Sellers.findOne({number: sellerNumber.get()})
@@ -21,6 +24,10 @@ Template[templateName].events
 	'submit form': (event, template) ->
 		
 		event.preventDefault()
+		
+		if not Sellers.findOne({number: sellerNumber.get()})
+			alert("Det finns ingen säljare med nummer "+sellerNumber.get()+". Avbryter.")
+			return
 		
 		updates =
 			$set:

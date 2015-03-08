@@ -74,18 +74,6 @@ Template[templateName].events
 			sellerNumber: ""
 			price: ""
 	
-	'input .sellerNumber': (event, template) ->
-		
-		sellerNumber = event.currentTarget.value
-		
-		if sellerNumber != ""
-			
-			updates =
-				$set:
-					sellerNumber: parseInt(sellerNumber)
-			
-			NewPurchases.update(@getId(), updates)
-	
 	'input .price': (event, template) ->
 		
 		price = event.currentTarget.value
@@ -111,6 +99,16 @@ Template[templateName].events
 	'submit form': (event, template) ->
 		
 		event.preventDefault()
+		
+		# Check so all sellers exists.
+		wrongNumber = -1
+		NewPurchases.find().forEach (purchase) ->
+			if not Sellers.findOne({number: purchase.getSellerNumber()})
+				wrongNumber = purchase.getSellerNumber()
+		
+		if wrongNumber != -1
+			alert("Det finns ingen säljare med nummer "+wrongNumber+". Avbryter.")
+			return
 		
 		# Remember info about this purchase.
 		where =
@@ -155,7 +153,25 @@ templateName = 'newPurchase'
 Template[templateName].helpers
 	
 	maxSellerNumber: () ->
-		return Sellers.find().count()
+		options =
+			sort:
+				[['number', 'desc']]
+		return Sellers.findOne({}, options).getNumber()
 
 Template[templateName].rendered = ->
 	@find('.sellerNumber').focus()
+
+Template[templateName].events
+	
+	'input .sellerNumber': (event, template) ->
+		
+		sellerNumber = event.currentTarget.value
+		
+		if sellerNumber == ""
+			sellerNumber = -1
+		
+		updates =
+			$set:
+				sellerNumber: parseInt(sellerNumber)
+		
+		NewPurchases.update(template.data.getId(), updates)
