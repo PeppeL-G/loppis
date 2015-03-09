@@ -25,7 +25,7 @@
 										{{/with}}
 									</span>
 									{{#with maxSellerNumber}}
-										<input type="number" required="true" name="quantity" min="1" max="{{this}}" class="form-control sellerNumber" id="sellerNumber" placeholder="Säljarens nummer (heltal mellan 1 och {{this}})." autofocus="true" value="{{./getSellerNumber}}">
+										<input type="number" required="true" name="quantity" min="1" max="{{this}}" class="form-control sellerNumber" id="sellerNumber" placeholder="Säljarens nummer (heltal mellan 1 och {{this}})." autofocus="true" value="{{../getSellerNumber}}">
 									{{/with}}
 								</div>
 							</div>
